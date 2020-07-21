@@ -2,75 +2,70 @@
 
    class card{
 
-        private $status = 'closed';
+        private $status;
         private $card_value;
-        private $id = 0;
-       // private $position;
+        private $id;
+       
+    public  function __construct($s, $v){
+         $this->status= $s;
+        $this->card_value = $v;
         
 
-        public  function __construct($s, $v){
-             $this->status= $s;
-            $this->card_value = $v;
-            //$this->id = $i;
+        
+    }
 
-        }
-
-        public function id($id){
-            //echo $id;
-            $this->id = $id;
+    public function id($id){
+        
+        $this->id = $id;
            
-            return $this->id;
+        return $this->id;
 
-        }
-        public function position($value){
-            $this->position= $value;
-        }
+    }
 
-        public function getId(){
-            return $this->id;
-        }
-
-        public function get_status($status){
+    public function get_status(){
             
-            $this->status = $status;
+        return $this->status ;
 
-        }
-        public function turn(){
+    }
+
+    public function turn(){
             
-                if($this->status == "closed"){
-                    $this->status = "opened";
-                }
-                else{
-                    $this->status = "closed"; 
-                }
-            
+        if($this->status == "closed"){
+            $this->status = "opened";
         }
-
-        /*public function set_value($value){
-             $this->card_value = $value;
-             //return $this->card_value;
-        }*/
-
-        public function get_value(){
-            $this->card_value;
+        else{
+            $this->status = "closed"; 
         }
-
-        public function display_cards(){
-
-            //$this->position= $position ;
-
             
-            if( $this->status == "closed"){
+    }
+
+    public function set_status($status){
+        $this->status = $status;
+        return $this->status;
+    }
+
+    public function get_value(){
+        return $this->card_value;
+    }
+
+    public function display_cards(){
+
+        if( $this->status == "closed"){
                 
-                echo "<a href= \"index.php?id=$this->id\"><button type=button name=closed >?</button></a>";
-            }
-            elseif($this->status == "opened"){
-                
-                echo "<span>$this->card_value</span>";
-            }
+            echo "<div><a href= \"index.php?id=$this->id\"><img src =\"src/img/cloud.jpg\" alt=\"carte_retourné\"></a></div>";
         }
+        elseif($this->status == "opened"){
+                
+            echo "<div><img src='src/img/IMG$this->card_value.png' alt=\"carte_decouverte\"></div>";
+        }
+        elseif($this->status == "found"){
+            echo "<div><img src='src/img/IMG$this->card_value.png' alt=\"carte_decouverte\"></div>";
+
+        }
+            
+    }
      
       
-   }     
+}     
 
 ?>
