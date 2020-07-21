@@ -38,7 +38,7 @@ class board{
             shuffle($this->array);
             $_SESSION['start'] = true;
             $_SESSION['game'] = $this->array;
-            $_SESSION['begin_game'] =new datetime(date("Y-m-d H:i:s"));
+            $_SESSION['begin_game'] =new datetime('now', new DateTimeZone('Europe/Paris'));
           
         }   
  
@@ -153,7 +153,7 @@ class board{
             
         }
         if($_SESSION['found_cards'] == ($this->limit *2) ){
-            $_SESSION['end_game']=new datetime(date("Y-m-d H:i:s"));
+            $_SESSION['end_game']= new datetime('now', new DateTimeZone('Europe/Paris'));
             echo "Bravo !! ";
         }
         
