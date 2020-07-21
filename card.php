@@ -9,9 +9,7 @@
     public  function __construct($s, $v){
          $this->status= $s;
         $this->card_value = $v;
-        
-
-        
+             
     }
 
     public function id($id){
@@ -52,7 +50,7 @@
 
         if( $this->status == "closed"){
                 
-            echo "<div><a href= \"index.php?id=$this->id\"><img src =\"src/img/cloud.jpg\" alt=\"carte_retourné\"></a></div>";
+            echo "<div><a href= \"memory.php?id=$this->id\"><img src =\"src/img/cloud.jpg\" alt=\"carte_retourné\"></a></div>";
         }
         elseif($this->status == "opened"){
                 
