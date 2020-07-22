@@ -1,6 +1,20 @@
 <?php
 session_start();
 
+if (isset($_POST['valider'])) {
+
+  require 'classes/database.php';
+  require 'classes/User.php';
+
+  $login = $_POST['login'];
+  $password1 = $_POST['password1'];
+  $password2 = $_POST['password2'];
+  
+  $bd = new Database("localhost","root","","memory");
+  $user = new User($bd);
+  $user->UserRegister($login,$password1,$password2);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,48 +23,31 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Inscription</title>
 </head>
 <body>
     <main>
 
     <h1>S'inscrire</h1>
 
-    <form class="form-group">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control " placeholder="Prénom">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Nom">
-    </div>
+    <?php if (isset($_SESSION['erreur'])) {echo "<p>".$_SESSION['erreur']."</p>" ;} ?>
+    <form action="" method="POST">
+
+        <input type="text" name="login" placeholder="Login">
+
+        <input type="password" name="password1" placeholder="pass 1">
+
+        <input type="password" name="password2" placeholder="pass 2">
+
+        <input type="submit" name="valider">
+
     
-  </div>
-  <div class="row">
-  <div class="col">
-      <input type="text" class="form-control" placeholder="Login">
-    </div>
-    <div class="col">
-      <input type="email" class="form-control" placeholder="Email">
-    </div>
-    </div>
-    
-  </div>
-  <div class="row">
-  <div class="col">
-      <input type="password" class="form-control" placeholder="Mot de passe">
-    </div>
-    <div class="col">
-      <input type="password" class="form-control" placeholder="Confirmation Mot de passe">
-    </div>
-    </div>
-    
-  </div>
-  <button type="button" class="btn btn-success btn-lg btn-block font-weight-bold">Valider</button>
-</form>
+    </form>
 
 
     </main>
         
 </body>
 </html>
+
+<?php unset($_SESSION['erreur']) ?>
