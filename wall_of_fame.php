@@ -48,9 +48,9 @@ if(isset($_POST['valider'])){
     <main class="main_wof">
         <h1>Wall of Fame</h1>
 
-    <form action="" method="post" class="filter">
+    <form action="" method="post" class="form-row align-items-cente">
 
-        <div>
+        <div class="col-auto">
             <p>Choisir le niveau</p>
 
             <select name="level" class="select_lvl">
@@ -64,10 +64,13 @@ if(isset($_POST['valider'])){
 
         </div>
         
-        <div>
+        <div class="col-auto">
             <p>Trier par :</p>
+            <div>
             <input type="radio" name='filtre' value='time' id='time'>
             <label for='time'>Meilleur temps</label>
+            </div>
+            
 
             <input type="radio" name='filtre' value='nb_coup' id="Nb_coups">
             <label for='Nb_coups'>Nombre de coups</label>
