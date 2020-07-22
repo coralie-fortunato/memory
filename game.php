@@ -36,6 +36,16 @@ class board{
  
 
             shuffle($this->array);
+
+            for($i=0; $i<count($this->array); $i++){
+            
+                $this->array[$i]->id($i);
+                
+     
+            }  
+
+
+
             $_SESSION['start'] = true;
             $_SESSION['game'] = $this->array;
             $_SESSION['begin_game'] =new datetime('now', new DateTimeZone('Europe/Paris'));
@@ -61,13 +71,12 @@ class board{
            
 
         }
-        for($i=0; $i<count($this->array); $i++){
-            
+        /*for($i=0; $i<count($this->array); $i++){
             
             $this->array[$i]->id($i);
             
  
-        }  
+        }*/  
 
         
         $_SESSION['game']=$this->array;
@@ -154,7 +163,7 @@ class board{
         }
         if($_SESSION['found_cards'] == ($this->limit *2) ){
             $_SESSION['end_game']= new datetime('now', new DateTimeZone('Europe/Paris'));
-            echo "Bravo !! ";
+            //echo "Bravo !! ";
         }
         
 

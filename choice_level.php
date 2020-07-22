@@ -7,7 +7,7 @@ $nb_paires = intval($_POST['nb_paires']);
 if(isset($_POST['valider'])){
     $_SESSION['nb_paires'] = $nb_paires ;
     $_SESSION['level'] = $_POST['nb_paires'] . 'paires';
-    header('Location:memory.php');
+    header('Location:memory.php?start');
 
 }
 var_dump($_SESSION);
