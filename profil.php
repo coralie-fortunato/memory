@@ -1,37 +1,30 @@
 <?php 
 session_start();
 
-require 'classes/database.php';
-require 'classes/User.php';
-$bd = new Database("localhost","root","","memory");
+if (isset($_SESSION['id'])) {
 
-$user = new User($bd); 
+    require 'classes/database.php';
+    require 'classes/User.php';
 
-$id = $_SESSION['id']; 
-var_dump($id);
-
-$resultat = $user->setLogin($id);
-var_dump($resultat);
-
-if (isset($_POST['valider'])) {
-
-$login = $_POST['login'];
-$password1 = $_POST['password1'];
-$password2 = $_POST['password2'];
+    $bd = new Database("localhost","root","","memory");
     
-$user->update($id,$login,$password1,$password2);
-
+    $user = new User($bd); 
+    
+    $id = $_SESSION['id']; 
+    
+    $resultat = $user->setLogin($id);
+    
+    if (isset($_POST['valider'])) {
+    
+        $login = $_POST['login'];
+        $password1 = $_POST['password1'];
+        $password2 = $_POST['password2'];
+            
+        $user->update($id,$login,$password1,$password2);  
+    }
 }
 
 
-
-
-if ($_GET['supp'] == "ok") {
-
-  $user->delete($id);
-    
-
-  }
 ?>
 
 <!DOCTYPE html>
@@ -39,27 +32,41 @@ if ($_GET['supp'] == "ok") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/fontello/css/fontello.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    
-    <main>
-    <?php if (isset($_SESSION['erreur'])) { echo $_SESSION['erreur'];} ?>
-        <form action="" method="post">
+    <header><?php include 'includes/header.php' ; ?></header>
+    <main class="main_lvl">
+       
+        <div class="frame">
         
-            <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
+            <h1>Mon compte</h1>
+            
 
-            <input type="password" name="password1" placeholder="mot de passe">
+            <?php if (isset($_SESSION['erreur'])) { echo $_SESSION['erreur'];} ?>
 
-            <input type="password" name="password2" placeholder="Confirmtion mot de passe">
+            <form action="" method="post" class="form_profil">
+            
+                <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
 
-            <input type="submit" name="valider">
+                <input type="password" name="password1" placeholder="mot de passe">
+
+                <input type="password" name="password2" placeholder="Confirmation mot de passe">
+
+                <button type="submit" name="valider">Enregistrer</button>
+            
+            </form>
+            
+            <!-- <div class="div">  
+                <button title="Déconnexion"><a href="log_out.php"><span class="icon-logout"></span></a></button>
+                <button title="Supprimer son compte"><a href="supprimer_compte.php?supp=ok"><span class="icon-trash"></span></a></button>   
+            </div> -->
+        </div>
         
-        </form>
-
-        <a href="profil.php?supp=ok">Supprimer</a>
-    
     </main>
+    <footer><?php include 'includes/footer.php'; ?></footer>
 </body>
 </html>
 <?php unset($_SESSION['erreur']) ?>

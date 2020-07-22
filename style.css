@@ -6,6 +6,12 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 main{
     width: 100%;
     display: flex;
@@ -51,6 +57,7 @@ form div{
     justify-content: space-around;
     align-items: center;
 }
+
 .frame h1{
     margin-top: 2em;
 }
@@ -65,7 +72,7 @@ form div{
 .frame select , .frame input{
     margin: 2%;
     padding: 3%;
-    width: 90%;
+    width: 70%;
     background: transparent;
     color:black;
     font-weight: 700;
@@ -93,4 +100,55 @@ form div{
     font-size: medium;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.div {
+    display: flex;
+
+}
+
+.div button {
+    margin: 2%;
+}
+
+.form_profil {
+    width: 70%;
+}
+
+/**** HEADER ****/
+
+header {
+    width: 100%;
+    min-height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: black;
+    color: white;
+}
+
+.div_header {
+    display: inline-block;
+}
+
+header nav {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.div_header span {
+    display: block;
+    width: 20%;
+    margin: auto;
+}
+
+/**** FOOTER ****/
+footer {
+    padding: 2%;
+    text-align: center;
+    background-color: black;
+    color: white;
 }

@@ -24,6 +24,7 @@ session_start();
     <title>Connexion</title>
 </head>
 <body>
+    <header><?php include 'includes/header.php' ; ?></header>
     <main class="main_lvl">
         <div class="frame">
             <h1>Se connecter</h1>
@@ -41,6 +42,7 @@ session_start();
             </form>
         </div>
     </main>
+    <footer><?php include 'includes/footer.php'; ?></footer>
     
 </body>
 </html>
