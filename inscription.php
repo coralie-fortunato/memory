@@ -26,25 +26,26 @@ if (isset($_POST['valider'])) {
     <title>Inscription</title>
 </head>
 <body>
-    <main>
+    <main class="main_lvl">
+        <div class="frame">
 
-    <h1>S'inscrire</h1>
+            <h1>S'inscrire</h1>
 
-    <?php if (isset($_SESSION['erreur'])) {echo "<p>".$_SESSION['erreur']."</p>" ;} ?>
-    <form action="" method="POST">
+            <?php if (isset($_SESSION['erreur'])) {echo "<p>".$_SESSION['erreur']."</p>" ;} ?>
+            <form action="" method="POST">
 
-        <input type="text" name="login" placeholder="Login">
+                <input type="text" name="login" placeholder="Login">
 
-        <input type="password" name="password1" placeholder="pass 1">
+                <input type="password" name="password1" placeholder="Mot de passe">
 
-        <input type="password" name="password2" placeholder="pass 2">
+                <input type="password" name="password2" placeholder="Confirmation mot de passe">
 
-        <input type="submit" name="valider">
+                <button type="submit" name="valider">Valider</button>
 
-    
-    </form>
+            
+            </form>
 
-
+        </div>
     </main>
         
 </body>

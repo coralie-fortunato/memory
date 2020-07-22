@@ -8,24 +8,30 @@ $bd = new Database("localhost","root","","memory");
 $user = new User($bd); 
 
 $id = $_SESSION['id']; 
+var_dump($id);
+
+$resultat = $user->setLogin($id);
+var_dump($resultat);
 
 if (isset($_POST['valider'])) {
 
-    $login = $_POST['login'];
-    $password1 = $_POST['password1'];
-    $password2 = $_POST['password2'];
+$login = $_POST['login'];
+$password1 = $_POST['password1'];
+$password2 = $_POST['password2'];
     
-    $user->update($id,$login,$password1,$password2);
+$user->update($id,$login,$password1,$password2);
 
 }
-$resultat = $user->setLogin($id);
 
-if ($_GET['supp'] = "ok") {
 
-    $user->delete($id);
+
+
+if ($_GET['supp'] == "ok") {
+
+  $user->delete($id);
     
 
-}
+  }
 ?>
 
 <!DOCTYPE html>

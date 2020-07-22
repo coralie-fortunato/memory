@@ -20,23 +20,26 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Connexion</title>
 </head>
 <body>
-    <main>
-        <h1>Se connecter</h1>
+    <main class="main_lvl">
+        <div class="frame">
+            <h1>Se connecter</h1>
 
 
-        <?php if (isset($_SESSION['erreur'])) { echo "<p>".$_SESSION['erreur']."</p>"; } ?>
-        <form action="" method="POST">
+            <?php if (isset($_SESSION['erreur'])) { echo "<p>".$_SESSION['erreur']."</p>"; } ?>
+            <form action="" method="POST" >
 
-            <input type="text" name="login" placeholder=" Login :">
+                <input type="text" name="login" placeholder=" Login :">
 
-            <input type="password" name="password" placeholder=" Mot de passe : ">
+                <input type="password" name="password" placeholder=" Mot de passe : ">
 
-            <input type="submit" name="valider">
-        
-        </form>
+                <button type="submit" name="valider">Valider</button>
+            
+            </form>
+        </div>
     </main>
     
 </body>
