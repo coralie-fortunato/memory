@@ -76,6 +76,7 @@ if(isset($_GET['restart'])){
 
                 $myscore =  new score($db_connect);
                 $myscore->insertScore( 1, $_SESSION['level'], $time ,  $_SESSION['score'] );
+                header("Location: wall_of_fame.php");
             }  
            //var_dump($_SESSION['flipped_card']);  
                ?>

@@ -49,14 +49,45 @@ class score{
     }
     
     public function scorebyLevel($level){
-
-        $req_level = $this->db->prepare("SELECT * FROM `score` WHERE niveau = ?");
-        $req_level->execute([$level]);
-        $data_level = $req_level->fetchAll();
-
-        return true;
         
 
+        $req_level = $this->db->prepare("SELECT login, niveau, nb_coup,
+                                        DATE_FORMAT(time, '%i:%s') AS time
+                                        FROM score 
+                                        inner join utilisateurs 
+                                        on score.id_utilisateur =  utilisateurs.id
+                                        WHERE niveau = ? 
+                                        ORDER BY score.nb_coup ASC ");
+        
+        $req_level->execute([$level]);
+        
+        $data_level = $req_level->fetchAll();
+        
+        return $data_level;
+        
+
+    }
+
+    public function scorebytime($level){
+        $req_time = $this->db->prepare("SELECT login, niveau, nb_coup,
+                                        DATE_FORMAT(time, '%i:%s') AS time
+                                        FROM score 
+                                        inner join utilisateurs 
+                                        on score.id_utilisateur =  utilisateurs.id
+                                        WHERE niveau = ? 
+                                        ORDER BY score.time ASC ");
+        $req_time->execute([$level]);
+        $data_time =$req_time->fetchAll();
+
+        return $data_time ;
+    }
+
+    public function scoreUser($id){
+        $req_score= $this->db->prepare("SELECT * FROM score WHERE id_utilisateur = ?");
+        $req_score->execute([$id]);
+        $data_user =  $req_score->fetchAll();
+
+        return $data_user;
     }
 
 }
