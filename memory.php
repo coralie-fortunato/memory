@@ -6,6 +6,7 @@ require("game.php");
 $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
 
+
 if(isset($_GET['restart'])){
 
     unset($_SESSION['game'], $_SESSION['begin_game'], $_SESSION['end_game'], $_SESSION['start'], $_SESSION['score']);
@@ -14,8 +15,7 @@ if(isset($_GET['restart'])){
     //session_start();
 
 }
-
-//var_dump($_SESSION['begin_game']);
+//var_dump($_SESSION);
 
 
 
@@ -36,14 +36,20 @@ if(isset($_GET['restart'])){
 
                <?php
               
-               if(!isset($_GET['id'])){
+                if(!isset($_GET['id'])){
                
                 $game = new board($_SESSION['nb_paires']);
                 
                 //$game->display_board();
             }
-            
-            
+
+            if(isset($_GET['start'])){
+                unset($_SESSION['start'], $_SESSION['flipped_card'], $_SESSION['score']);
+                $game = new board($_SESSION['nb_paires']);
+                //$game->display_board();
+            }
+
+                
             if(isset($_GET['id'])){
                 
                 $game = new board($_SESSION['nb_paires']);
@@ -54,9 +60,10 @@ if(isset($_GET['restart'])){
                     $_SESSION['score']=null;
                 }
                 $_SESSION['score']++;
-                var_dump($_SESSION['score']);
+                //var_dump($_SESSION['score']);
                 
             }
+
 
             $game->display_board();
 
@@ -64,7 +71,7 @@ if(isset($_GET['restart'])){
                 //var_dump($_SESSION['end_game']);
                 $total_time = $_SESSION['begin_game']->diff($_SESSION['end_game']);
                 $time =$total_time->format('%H:%i:%s');
-                echo $time;
+                //echo $time;
                
 
                 $myscore =  new score($db_connect);

@@ -29,8 +29,8 @@ class score{
         $this->moves = $moves;
 
         $req_insert = $this->db->prepare("INSERT INTO `score`( `id_utilisateur`, `niveau`, `nb_coup`, `time`) VALUES (?, ?, ?, ?)") ;
-         var_dump($req_insert);
-         var_dump($this->time);
+         //var_dump($req_insert);
+         //var_dump($this->time);
          $req_insert->execute([$this->id , $this->level , $this->moves , $this->time]);
         
 
@@ -48,7 +48,14 @@ class score{
         return true;
     }
     
-    public function scorebyLevel(){
+    public function scorebyLevel($level){
+
+        $req_level = $this->db->prepare("SELECT * FROM `score` WHERE niveau = ?");
+        $req_level->execute([$level]);
+        $data_level = $req_level->fetchAll();
+
+        return true;
+        
 
     }
 

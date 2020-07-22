@@ -1,5 +1,7 @@
 <?php
 session_start();
+require("classes/database.php");
+require("score.php");
 
 ?>
 <!DOCTYPE html>
@@ -10,6 +12,36 @@ session_start();
     <title>Wall of fame</title>
 </head>
 <body>
+    <main>
+    <form action="" method="post">
+        <select name="level">
+
+        <?php for($i=3; $i<=16; ++$i):?>
+            <option value=<?= $i ?> ><?= $i ?> paires</option>
+        <?php endfor ?>
+
+
+        </select>
+
+        <button type="submit" name="valider">Valider</button>
+
+        </form>
+
+        <table>
+        <th>
+            <td>Joueur</td>
+            <td>Niveau</td>
+            <td>Meilleur Temps</td>
+            <td>Nombre de coup</td>
+        
+        </th>
+        <tr></tr>
+        
+        
+        </table>
+
     
+    
+    </main>
 </body>
 </html>
