@@ -23,29 +23,34 @@ if (isset($_POST['valider'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/fontello/css/fontello.css">
+    
     <title>Inscription</title>
 </head>
 <body>
-    <main>
+    <header><?php include 'includes/header.php' ; ?></header>
+    <main class="main_lvl">
+        <div class="frame">
 
-    <h1>S'inscrire</h1>
+            <h1>S'inscrire</h1>
 
-    <?php if (isset($_SESSION['erreur'])) {echo "<p>".$_SESSION['erreur']."</p>" ;} ?>
-    <form action="" method="POST">
+            <?php if (isset($_SESSION['erreur'])) {echo "<p>".$_SESSION['erreur']."</p>" ;} ?>
+            <form action="" method="POST">
 
-        <input type="text" name="login" placeholder="Login">
+                <input type="text" name="login" placeholder="Login">
 
-        <input type="password" name="password1" placeholder="pass 1">
+                <input type="password" name="password1" placeholder="Mot de passe">
 
-        <input type="password" name="password2" placeholder="pass 2">
+                <input type="password" name="password2" placeholder="Confirmation mot de passe">
 
-        <input type="submit" name="valider">
+                <button type="submit" name="valider">Valider</button>
 
-    
-    </form>
+            
+            </form>
 
-
+        </div>
     </main>
+    <footer><?php include 'includes/footer.php'; ?></footer>
         
 </body>
 </html>

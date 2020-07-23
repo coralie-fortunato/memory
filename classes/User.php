@@ -19,6 +19,7 @@ class User {
         $requete = $this->connect->prepare("SELECT login FROM utilisateurs WHERE id = ?");
         $requete->execute([$id]);
         $resultat = $requete->fetch();
+        
         return $resultat ;
     }
 
