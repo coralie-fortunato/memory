@@ -5,8 +5,9 @@ require("score.php");
 
 $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
+
 $score = new score($db_connect );
-$data = $score->scorebyLevel('3 paires');
+$data = $score->scorebyLevel($_GET['level']);
 
 if(isset($_POST['valider'])){
 
@@ -31,12 +32,9 @@ if(isset($_POST['valider'])){
 
 
 }
-
-
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,12 +46,12 @@ if(isset($_POST['valider'])){
     <main class="main_wof">
         <h1>Wall of Fame</h1>
 
-    <form action="" method="post" class="form-row align-items-cente">
+    <form action="" method="get" class="filter" >
 
-        <div class="col-auto">
+        <div >
             <p>Choisir le niveau</p>
 
-            <select name="level" class="select_lvl">
+            <select name="level">
 
                 <?php for($i=3; $i<=16; ++$i):?>
                     <option value="<?= $i?> paires" ><?= $i ?> paires </option>
@@ -64,22 +62,25 @@ if(isset($_POST['valider'])){
 
         </div>
         
-        <div class="col-auto">
+        <div>
             <p>Trier par :</p>
             <div>
             <input type="radio" name='filtre' value='time' id='time'>
             <label for='time'>Meilleur temps</label>
             </div>
             
-
-            <input type="radio" name='filtre' value='nb_coup' id="Nb_coups">
-            <label for='Nb_coups'>Nombre de coups</label>
+            <div>
+                <input type="radio" name='filtre' value='nb_coup' id="Nb_coups" checked>
+                <label for='Nb_coups'>Nombre de coups</label>
+            </div>
 
 
         </div>
-        
-        <button type="submit" name="valider">Valider</button>
 
+        <div>
+            <button type="submit" name="valider" class="btn btn-light">Valider</button>
+        </div>
+        
         </form>
 
         <table class="table table-bordered">
