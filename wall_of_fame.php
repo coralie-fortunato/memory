@@ -17,7 +17,7 @@ if(isset($_POST['valider'])){
         $level= strval($_POST['level']); 
         $data = $score->scorebyLevel($level);
     
-        //var_dump($data);
+        var_dump($data);
 
     }
 
@@ -26,7 +26,7 @@ if(isset($_POST['valider'])){
          //var_dump($_POST['level']);
         $level= strval($_POST['level']); 
         $data = $score->scorebytime($level);
-        //var_dump($data);
+        var_dump($data);
 
     }
 

@@ -57,7 +57,8 @@ class score{
                                         inner join utilisateurs 
                                         on score.id_utilisateur =  utilisateurs.id
                                         WHERE niveau = ? 
-                                        ORDER BY score.nb_coup ASC ");
+                                        ORDER BY score.nb_coup ASC 
+                                        LIMIT 10 ");
         
         $req_level->execute([$level]);
         
@@ -75,7 +76,8 @@ class score{
                                         inner join utilisateurs 
                                         on score.id_utilisateur =  utilisateurs.id
                                         WHERE niveau = ? 
-                                        ORDER BY score.time ASC ");
+                                        ORDER BY score.time ASC
+                                        LIMIT 10 ");
         $req_time->execute([$level]);
         $data_time =$req_time->fetchAll();
 

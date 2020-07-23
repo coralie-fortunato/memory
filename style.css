@@ -28,7 +28,8 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 1em;
+    padding: 1em;
+    background: #dfe4ea;
     
 }
 
@@ -244,7 +245,7 @@ footer {
     background-image: url(src/img/background_git2.png);
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    
     width: 100%;
     color: white;
 }
