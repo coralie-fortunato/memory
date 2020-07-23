@@ -2,15 +2,16 @@
 session_start();
 unset($_SESSION['game'], $_SESSION['begin_game'], $_SESSION['end_game'], $_SESSION['start']);
 //session_destroy();
-$nb_paires = intval($_POST['nb_paires']);
+
 
 if(isset($_POST['valider'])){
+    $nb_paires = intval($_POST['nb_paires']);
     $_SESSION['nb_paires'] = $nb_paires ;
     $_SESSION['level'] = $_POST['nb_paires'] . " " .'paires';
     header('Location:memory.php?start');
 
 }
-var_dump($_SESSION);
+//var_dump($_SESSION);
 
 ?>
 

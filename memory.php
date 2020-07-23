@@ -5,7 +5,7 @@ require("game.php");
 
 $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
-
+$success_msg=null;
 
 if(isset($_GET['restart'])){
 
@@ -30,7 +30,8 @@ if(isset($_GET['restart'])){
     <title>Memory</title>
 </head>
 <body>
-    <main>
+    <header><?php include 'includes/header.php' ; ?></header>
+    <main class="main_memory">
         
            <div class="grid">
 
@@ -76,16 +77,37 @@ if(isset($_GET['restart'])){
 
                 $myscore =  new score($db_connect);
                 $myscore->insertScore( $_SESSION['id'], $_SESSION['level'], $time ,  $_SESSION['score'] );
-                header("Location: wall_of_fame.php");
+                //header("Location: wall_of_fame.php");
+                $success_msg="BRAVO! Vous avez gagné !";
+
             }  
            //var_dump($_SESSION['flipped_card']);  
                ?>
-           </div>
+           </div >
 
-           <a href="memory.php?restart">Restart</a>
+           <?php if(isset($success_msg)): ?>
+                <div class="animate__backInDown">
+                    <div>
+                        <p class="success"><?= $success_msg ?></p>
+
+                    </div>
+                    <div>
+                        <a href="memory.php?restart" class="link_memory">Restart</a>
+
+                    </div>
+                    <div>
+                        <a href="choice_level.php" class="link_memory">Changer de niveau</a>
+
+                    </div>
+                    
+
+                </div>
+            <?php endif ?>
+           
            
 
        
     </main>
+    <footer><?php include 'includes/footer.php'; ?></footer>
 </body>
 </html>

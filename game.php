@@ -144,11 +144,6 @@ class board{
                 //array_push($_SESSION['flipped_card'], $this->array[$id]);
 
                 
-               
-                 
-            //if($_SESSION['flipped_card'][2]->get_value() != $this->array[$id]->get_value()) $_SESSION['flipped_card'][3]->turn();
-                //unset($_SESSION['flipped_card']);
-                
             break; 
             
 
@@ -163,6 +158,8 @@ class board{
         }
         if($_SESSION['found_cards'] == ($this->limit *2) ){
             $_SESSION['end_game']= new datetime('now', new DateTimeZone('Europe/Paris'));
+
+            
             //echo "Bravo !! ";
         }
         

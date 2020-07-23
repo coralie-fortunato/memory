@@ -50,7 +50,7 @@
 
         if( $this->status == "closed"){
                 
-            echo "<div><a href= \"memory.php?id=$this->id\"><img src =\"src/img/cloud.jpg\" alt=\"carte_retourné\"></a></div>";
+            echo "<div><a href= \"memory.php?id=$this->id\"><img src =\"src/img/cloud.jpg\" alt=\"carte_retourné\" class=\"covered\"></a></div>";
         }
         elseif($this->status == "opened"){
                 
