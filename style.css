@@ -115,17 +115,40 @@ form div{
 .filter{
     display: flex;
     width: 100%;
+    margin: 3%;
+    font-weight: 700;
 }
 .filter div{
     display: flex;
     justify-content: space-around;
-    width: 33%;
+    align-items: center;
     margin: 0;
 }
+.filter p{
+    margin:0;
+}
 
+.filterby{
+    width: 40%;
+}
+
+.filterby div{
+    width: 80%;
+}
+.filterby label{
+    width: 70%;
+    margin-left: 3%;
+}
+.button{
+    width: 20%;
+    display: flex;
+    align-self: flex-start;
+}
+.filter select{
+    width: 50%;
+}
 .btn{
-    
-    height: 10vh;
     font-weight: 700;
+    
    
 }

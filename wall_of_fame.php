@@ -7,7 +7,7 @@ $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
 
 $score = new score($db_connect );
-$data = $score->scorebyLevel($_GET['level']);
+$data = $score->scorebyLevel('3 paires');
 
 if(isset($_POST['valider'])){
 
@@ -46,9 +46,9 @@ if(isset($_POST['valider'])){
     <main class="main_wof">
         <h1>Wall of Fame</h1>
 
-    <form action="" method="get" class="filter" >
+    <form action="" method="post" class="filter" >
 
-        <div >
+        <div class="filterby" >
             <p>Choisir le niveau</p>
 
             <select name="level">
@@ -62,7 +62,7 @@ if(isset($_POST['valider'])){
 
         </div>
         
-        <div>
+        <div class="filterby">
             <p>Trier par :</p>
             <div>
             <input type="radio" name='filtre' value='time' id='time'>
@@ -77,7 +77,7 @@ if(isset($_POST['valider'])){
 
         </div>
 
-        <div>
+        <div class="button">
             <button type="submit" name="valider" class="btn btn-light">Valider</button>
         </div>
         
