@@ -1,1 +1,1 @@
-<p> © 2020 Copyright: Coralie C. , Céline E-L.</p>
+<p> © 2020 Copyright: Coralie F. , Céline E-L.</p>

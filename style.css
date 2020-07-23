@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
-    margin: 0 !important;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif !important;
@@ -12,13 +12,13 @@ a {
     color: white;
 }
 
-main{
+/* main{
     width: 100%;
     display: flex;
     /*flex-direction: column;*/
-    justify-content: center;
+    /* justify-content: center; */
     /*align-items: center;*/
-}
+} */
 .grid{
     width:70%;
     display: grid;
@@ -58,10 +58,10 @@ form div{
     align-items: center;
 }
 
-.frame h1{
+.frame h1,.frame_profil h1{
     margin-top: 2em;
 }
-.frame form{
+.frame form , .frame_profil form{
     display: flex;
     flex-direction: column;
     height: 50vh;
@@ -69,7 +69,7 @@ form div{
     align-items: center;
     
 }
-.frame select , .frame input{
+.frame select , .frame input , .frame_profil input{
     margin: 2%;
     padding: 3%;
     width: 70%;
@@ -80,17 +80,17 @@ form div{
     border: 1px solid white;
     
 }
-.frame option , .frame input{
+.frame option , .frame input, .frame_profil input{
     background: transparent;
     font-weight: 700;
 
 } 
 
-.frame input::placeholder {
+.frame input::placeholder, .frame_profil input::placeholder {
     color: black;
 }
 
-.frame button{
+.frame button, .frame_profil button{
     width:50%;
     margin:3%;
     padding: 3%;
@@ -142,7 +142,7 @@ header nav {
 .div_header span {
     display: block;
     width: 20%;
-    margin: auto;
+    margin: auto!important;
 }
 
 /**** FOOTER ****/
@@ -194,4 +194,39 @@ footer {
 .filter div select{
     width: 50%;
     height: 20px;
+}
+
+.main_profil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(src/img/background_git.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+   
+}
+
+.frame_profil{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.frame_profil h1{
+    margin-top: 2em;
+}
+
+.frame_profil form{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    text-align: center;
+    align-items: center;
+    
 }
