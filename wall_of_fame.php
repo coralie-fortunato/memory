@@ -7,7 +7,7 @@ $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
 
 $score = new score($db_connect );
-$data = $score->scorebyLevel($_GET['level']);
+$data = $score->scorebyLevel('3 paires');
 
 if(isset($_POST['valider'])){
 
@@ -17,7 +17,7 @@ if(isset($_POST['valider'])){
         $level= strval($_POST['level']); 
         $data = $score->scorebyLevel($level);
     
-        //var_dump($data);
+        var_dump($data);
 
     }
 
@@ -26,7 +26,7 @@ if(isset($_POST['valider'])){
          //var_dump($_POST['level']);
         $level= strval($_POST['level']); 
         $data = $score->scorebytime($level);
-        //var_dump($data);
+        var_dump($data);
 
     }
 
@@ -38,7 +38,7 @@ if(isset($_POST['valider'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="src/fontello/css/fontello.css">
     <link rel="stylesheet" href="style.css">
     
@@ -49,9 +49,9 @@ if(isset($_POST['valider'])){
     <main class="main_wof">
         <h1>Wall of Fame</h1>
 
-    <form action="" method="get" class="filter" >
+    <form action="" method="post" class="filter" >
 
-        <div >
+        <div class="filterby" >
             <p>Choisir le niveau</p>
 
             <select name="level">
@@ -65,7 +65,7 @@ if(isset($_POST['valider'])){
 
         </div>
         
-        <div>
+        <div class="filterby">
             <p>Trier par :</p>
             <div>
             <input type="radio" name='filtre' value='time' id='time'>
@@ -80,7 +80,7 @@ if(isset($_POST['valider'])){
 
         </div>
 
-        <div>
+        <div class="button">
             <button type="submit" name="valider" class="btn btn-light">Valider</button>
         </div>
         

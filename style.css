@@ -19,11 +19,26 @@ a {
     justify-content: center;
     align-items: center;
 } */
+
+/****PAGE MEMORY****/
+
+.main_memory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+    background: #dfe4ea;
+    
+}
+
 .grid{
     width:70%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
     column-gap: 3%;
+    position: relative;
 }
 
 .grid div{
@@ -31,6 +46,11 @@ a {
 }
 .grid img{
     width: 100%;
+}
+.link_memory{
+    color: #00a8ff;
+    font-size: 1.5em;
+    font-weight: 800;
 }
 
 form{
@@ -115,6 +135,69 @@ form div{
     width: 70%;
 }
 
+.covered:hover{
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  .success{
+     color:#4cd137;
+     font-weight: 900;
+     font-size: 2em;
+
+  }
+
+  @keyframes backInDown {
+    0% {
+      -webkit-transform: translateY(-1200px) scale(0.7);
+      transform: translateY(-1200px) scale(0.7);
+      opacity: 0.7;
+    }
+  
+    80% {
+      -webkit-transform: translateY(0px) scale(0.7);
+      transform: translateY(0px) scale(0.7);
+      opacity: 0.7;
+    }
+  
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .animate__backInDown {
+    -webkit-animation-name: backInDown;
+    animation-name: backInDown;
+    animation-duration: 2s;
+    position: absolute;
+    width: 50%;
+    height: 50vh;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .animate__backInDown div{
+    padding: 1em;
+  }
+
 /**** HEADER ****/
 
 header {
@@ -157,12 +240,12 @@ footer {
 .main_wof{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
     background-image: url(src/img/background_git2.png);
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    
     width: 100%;
     color: white;
 }
@@ -178,12 +261,21 @@ footer {
 .filter{
     display: flex;
     width: 100%;
+    margin: 3%;
+    font-weight: 700;
 }
 .filter div{
     display: flex;
     justify-content: space-around;
-    width: 33%;
+    align-items: center;
     margin: 0;
+}
+.filter p{
+    margin:0;
+}
+
+.filterby{
+    width: 40%;
 }
 
 .filter div select{
@@ -225,12 +317,25 @@ footer {
     margin-left: 50%;
     /* text-align: center;
     align-items: center; */
-    
+}
+.filterby div{
+    width: 80%;
+}
+.filterby label{
+    width: 70%;
+    margin-left: 3%;
+}
+.button{
+    width: 20%;
+    display: flex;
+    align-self: flex-start;
+}
+.filter select{
+    width: 50%;
 }
 .btn{
-    
-    height: 10vh;
     font-weight: 700;
+    
    
 }
 
@@ -273,3 +378,4 @@ footer {
     cursor: pointer;
     text-transform: uppercase;
 }
+
