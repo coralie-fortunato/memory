@@ -216,7 +216,7 @@ header {
 }
 
 header nav {
-    width: 40%;
+    width: 55%;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
@@ -314,7 +314,8 @@ footer {
     flex-direction: column; */
     /* height: 50vh;
     width: 70%; */
-    margin-left: 50%;
+    margin: 3% 50% 5%;
+}
     /* text-align: center;
     align-items: center; */
 }
@@ -342,7 +343,8 @@ footer {
 /*** PROFIL ***/
 
 .main_profil h1 {
-    margin-left: 50%;
+    text-align: center;
+    padding: 3%;
 }
 .section {
     display: flex;
@@ -355,7 +357,11 @@ footer {
 }
 
 .table_profil2 {
-    width: 30%!important;
+    width: 40%!important;
+}
+
+.frame_profil form {
+    text-align: center;
 }
 .frame_profil input {
     margin: 1%;

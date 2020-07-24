@@ -2,14 +2,11 @@
 
 <nav>
     <?php if (isset($_SESSION['id'])) :?>
+        <a href="wall_of_fame.php">Wall of Fame</a>
         <a href="profil.php">Mon compte</a>
         <div class="div_header">
             <span class="icon-logout"></span>
             <a href="log_out.php" > Se déconnecter</a>  
-        </div>
-        <div class="div_header">
-            <span class="icon-trash"></span>
-            <a href="supprimer_compte.php?supp=ok">Supprimer son compte</a>
         </div>
         
     <?php else : ?>
