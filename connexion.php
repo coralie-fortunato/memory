@@ -25,8 +25,13 @@ session_start();
     <title>Connexion</title>
 </head>
 <body>
-    <header><?php include 'includes/header.php' ; ?></header>
+    
     <main class="main_lvl">
+        
+        <div class="go_back_button">
+            <a href="index.php"><img src="src/icon/go-back256_24856.png" alt="go back icon"></a>
+
+        </div>
         <div class="frame">
             <h1>Se connecter</h1>
 
@@ -42,8 +47,10 @@ session_start();
             
             </form>
         </div>
+        
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>
+    
     
 </body>
 </html>

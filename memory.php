@@ -30,10 +30,16 @@ if(isset($_GET['restart'])){
     <title>Memory</title>
 </head>
 <body>
-    <header><?php include 'includes/header.php' ; ?></header>
+    
     <main class="main_memory">
+
+        <div class="go_back_button">
+            <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
+
+        </div>
+        <h1 class="big_title">Memory GAME</h1>
         
-           <div class="grid">
+        <div class="grid">
 
                <?php
               
@@ -83,10 +89,10 @@ if(isset($_GET['restart'])){
             }  
            //var_dump($_SESSION['flipped_card']);  
                ?>
-           </div >
+        </div >
 
-           <?php if(isset($success_msg)): ?>
-                <div class="animate__backInDown">
+        <?php if(isset($success_msg)): ?>
+        <div class="animate__backInDown">
                     <div>
                         <p class="success"><?= $success_msg ?></p>
 
@@ -99,15 +105,23 @@ if(isset($_GET['restart'])){
                         <a href="choice_level.php" class="link_memory">Changer de niveau</a>
 
                     </div>
+                    <div>
+                        <a href="wall_of_fame.php" class="link_memory">Wall Of Fame</a>
+
+                    </div>
+                    <div>
+                        <p>Retrouvez toutes les images sur <a href="https://octodex.github.com/" target="blank"><img src="src/icon/cat.png" alt="logo github"></a></p>
+                    </div>
                     
 
-                </div>
-            <?php endif ?>
+        </div>
+        <?php endif ?>
            
            
 
-       
+        
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>
+    
 </body>
 </html>

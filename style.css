@@ -2,7 +2,8 @@
 
 @font-face {
     font-family: "Tycoon";
-    src: url("src/font/TytoonMist.otf"),url("src/font/TytoonMist.ttf");
+    src: url("src/font/TytoonMist.otf"),
+         url("src/font/TytoonMist.ttf");
 
 } 
 *{
@@ -12,9 +13,7 @@
     font-family: 'Montserrat', sans-serif ;
 }
 
-h1 {
-    font-family: "Tycoon"!important;
-}
+
 a {
     text-decoration: none!important;
     color: white;
@@ -26,10 +25,10 @@ a {
     height: 100vh;
     display: flex;
     
+    
 }
-.link_index{
-    color: black;
-}
+
+
 .div_left, .div_right{
     display: flex;
     flex-direction: column;
@@ -57,11 +56,32 @@ a {
     
 }
 .big_title{
+    font-family: "Tycoon" !important;
+    letter-spacing: 5px;
+    font-size: 5em;
+    width: 100%;
+    text-align: center;
+
+}
+
+.choices{
+    padding: 3%;
+    background: #00a8ff;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 50%;
+    text-align:center;
     
+}
+
+.choices:hover{
+    opacity: 0.6;
 }
 
 
 /****PAGE MEMORY****/
+
+
 
 .main_memory{
     display: flex;
@@ -71,15 +91,28 @@ a {
     width: 100%;
     padding: 1em;
     background: #dfe4ea;
+    min-height: 100vh;
     
+}
+
+.go_back_button{
+    width: 5%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.go_back_button img{
+    width: 100%;
 }
 
 .grid{
     width:70%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
+    row-gap: 1%;
     column-gap: 3%;
     position: relative;
+    margin-top: 2%;
 }
 
 .grid div{
@@ -238,6 +271,9 @@ form div{
   .animate__backInDown div{
     padding: 1em;
   }
+  .animate__backInDown p{
+      font-weight: bold;
+  }
 
 /**** HEADER ****/
 
@@ -270,13 +306,19 @@ header nav {
 }
 
 /**** FOOTER ****/
-footer {
-    padding: 2%;
+.footer {
+    
     text-align: center;
-    background-color: black;
-    color: white;
+    position: absolute;
+    left: 38%;
+    bottom: 2%;  
   
 }
+
+footer{
+    text-align: center;
+}
+
 /* PAGE WALL OF FAME */
 .main_wof{
     display: flex;

@@ -28,8 +28,14 @@ if (isset($_POST['valider'])) {
     <title>Inscription</title>
 </head>
 <body>
-    <header><?php include 'includes/header.php' ; ?></header>
+    
     <main class="main_lvl">
+        
+        <div class="go_back_button">
+            <a href="index.php"><img src="src/icon/go-back256_24856.png" alt="go back icon"></a>
+
+        </div>
+        
         <div class="frame">
 
             <h1>S'inscrire</h1>
@@ -49,8 +55,10 @@ if (isset($_POST['valider'])) {
             </form>
 
         </div>
+        
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>
+    
         
 </body>
 </html>

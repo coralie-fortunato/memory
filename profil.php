@@ -39,7 +39,7 @@ if (isset($_SESSION['id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,13 +50,18 @@ if (isset($_SESSION['id'])) {
     <title>Document</title>
 </head>
 <body>
-    <header><?php include 'includes/header.php' ; ?></header>
+    
     <main class="main_profil">
        
         <div class="frame_profil">
         
             <h1>Mon compte</h1>
             
+            
+            <div class="go_back_button">
+                <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
+
+            </div>
 
             <?php if (isset($_SESSION['erreur'])) { echo $_SESSION['erreur'];} ?>
 
@@ -157,7 +162,7 @@ if (isset($_SESSION['id'])) {
  
             <button type="button" class="btn btn-danger" ><a href="supprimer_compte.php?supp=ok" class="icon-trash">Supprimer son compte</a></button>
         </div>
-        
+                           
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>
 </body>
