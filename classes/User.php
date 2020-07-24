@@ -85,6 +85,7 @@ class User {
                 $update = $this->connect->prepare("UPDATE utilisateurs SET login= ? WHERE id= ?");
                 $update->execute([$this->login,$id]);
                 $_SESSION["login"] = $this->login; 
+                $_SESSION['success'] = "Modifications prises en compte";
             }
             else {
                 $_SESSION['erreur'] = "Login existe deja";
@@ -99,6 +100,7 @@ class User {
                 $update = $this->connect->prepare("UPDATE utilisateurs SET  password= ? WHERE id= ?");
                 $update->execute([$passhash,$id]);
                 $_SESSION["login"] = $this->login; 
+                $_SESSION['success'] = "Modifications prises en compte";
 
             } else{
                 $_SESSION['erreur'] = "Les mots de passe ne correspondent pas";

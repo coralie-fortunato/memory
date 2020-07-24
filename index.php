@@ -12,7 +12,9 @@
 <body>
     <header><?php include 'includes/header.php'; ?></header>
 
-    <main></main>
+    <main>
+        <h1>Coucou</h1>
+    </main>
 
     <footer><?php include 'includes/footer.php'; ?></footer>
 </body>
