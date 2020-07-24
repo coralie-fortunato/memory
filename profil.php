@@ -73,37 +73,41 @@ if (isset($_SESSION['id'])) {
             </form>
         </div>
         <section class="section">
-            <table class="table table-dark table-hover table_profil">
-                <thead>
-                    <tr>
-                        <th>Niveau</th>
-                        <th>Meilleur Temps</th>
-                        <th>Nombre de coup</th>
+            <div class="div_tableau1">
+                <h3>Tableau des scores</h3>
+                <table class="table table-dark table-hover table_profil">
                     
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Niveau</th>
+                            <th>Meilleur Temps</th>
+                            <th>Nombre de coup</th>
+                        
+                        </tr>
 
-                </thead>
-        
-                <tbody>
+                    </thead>
             
-        
-                    <?php for($i=0; $i<count($resultat_score); $i++): ?>
-        
-                    <tr>
-                        <td><?= $resultat_score[$i]['niveau'] ?></td>
-                        <td><?= $resultat_score[$i]['time'] ?></td>
-                        <td><?= $resultat_score[$i]['nb_coup'] ?></td>
+                    <tbody>
+                
             
-                    </tr>
-                    <?php endfor?>
+                        <?php for($i=0; $i<count($resultat_score); $i++): ?>
             
+                        <tr>
+                            <td><?= $resultat_score[$i]['niveau'] ?></td>
+                            <td><?= $resultat_score[$i]['time'] ?></td>
+                            <td><?= $resultat_score[$i]['nb_coup'] ?></td>
+                
+                        </tr>
+                        <?php endfor?>
+                
 
-                </tbody>
-            
-            </table>
+                    </tbody>
+                
+                </table>
+            </div>
 
-
-            
+            <div class="div_tableau2">
+                <h3>Scores moyens</h3>
                 <table class="table table-bordered table-hover table_profil2">
                     
                     <thead class="thead-dark">
@@ -142,7 +146,7 @@ if (isset($_SESSION['id'])) {
                     <?php endfor ;?>
                     </tbody>
                 </table>
-
+            </div>
 
                
             
@@ -150,8 +154,8 @@ if (isset($_SESSION['id'])) {
       
         
         <div class="supprimer">
-            <span class="icon-trash"></span>
-            <a href="supprimer_compte.php?supp=ok">Supprimer son compte</a>
+ 
+            <button type="button" class="btn btn-danger" ><a href="supprimer_compte.php?supp=ok" class="icon-trash">Supprimer son compte</a></button>
         </div>
         
     </main>
