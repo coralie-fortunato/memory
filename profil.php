@@ -161,6 +161,7 @@ if (isset($_SESSION['id'])) {
             <button class="btn btn-warning m-auto d-block " ><a href="profil.php">Retour</a></button>
         <?php endif ;?>  
     </main>
+    <footer><?php include 'includes/footer.php'; ?></footer>
   
 </body>
 </html>
