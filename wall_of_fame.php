@@ -17,7 +17,7 @@ if(isset($_POST['valider'])){
         $level= strval($_POST['level']); 
         $data = $score->scorebyLevel($level);
     
-        var_dump($data);
+        //var_dump($data);
 
     }
 
@@ -45,9 +45,15 @@ if(isset($_POST['valider'])){
     <title>Wall of fame</title>
 </head>
 <body>
-    <header><?php include 'includes/header.php' ; ?></header>
+    
     <main class="main_wof">
         <h1>Wall of Fame</h1>
+
+        
+        <div class="go_back_button">
+            <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
+
+        </div>
 
     <form action="" method="post" class="filter" >
 
@@ -117,7 +123,7 @@ if(isset($_POST['valider'])){
         </table>
 
     
-    
+        
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>
 </body>

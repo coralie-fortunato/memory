@@ -39,7 +39,7 @@ if (isset($_SESSION['id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,6 +52,24 @@ if (isset($_SESSION['id'])) {
 <body>
     
     <main class="main_profil">
+       
+        <div class="frame_profil">
+        
+            <h1>Mon compte</h1>
+            
+            
+            <div class="go_back_button">
+                <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
+
+            </div>
+
+            <?php if (isset($_SESSION['erreur'])) { echo $_SESSION['erreur'];} ?>
+
+            <form action="" method="post" >
+            
+                <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
+
+                <input type="password" name="password1" placeholder="mot de passe">
 
     
 
@@ -140,6 +158,13 @@ if (isset($_SESSION['id'])) {
                 <button type="button" class="btn btn-warning" ><a href="profil.php?modif" >Modifier son compte</a></button>
             </div>
         
+<<<<<<< HEAD
+        <div class="supprimer">
+ 
+            <button type="button" class="btn btn-danger" ><a href="supprimer_compte.php?supp=ok" class="icon-trash">Supprimer son compte</a></button>
+        </div>
+                           
+=======
         <?php else :?>
             <div class="frame_profil">
 
@@ -157,6 +182,7 @@ if (isset($_SESSION['id'])) {
             </div>
             <button class="btn btn-warning m-auto d-block " ><a href="profil.php">Retour</a></button>
         <?php endif ;?>  
+>>>>>>> fe30d64bec08b6e34f61e7f846812357f937513f
     </main>
   
 </body>

@@ -25,8 +25,14 @@ if(isset($_POST['valider'])){
     <title>Document</title>
 </head>
 <body>
-<header><?php include 'includes/header.php'; ?></header>
+
 <main class="main_lvl">
+
+    
+    <div class="go_back_button">
+        <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
+
+    </div>
 
     <div class="frame">
 
