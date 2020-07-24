@@ -4,10 +4,11 @@ session_start();
 if (isset($_SESSION['id'])) {
 
     $id = $_SESSION['id']; 
-    echo $id;
+    
     require 'classes/database.php';
     require 'classes/User.php';
     require 'score.php';
+    require 'fonctions/functions.php';
 
     $bd = new Database("localhost","root","","memory");
     $connect = $bd->connect();
@@ -22,42 +23,7 @@ if (isset($_SESSION['id'])) {
     // RECUPERATION INFOS USER
     $resultat = $user->setLogin($id);
 
-    //fonction moyenne coup
-    function recuperation_Moyenne_score($connect,$level,$id){
-
-        $requete = $connect->prepare("SELECT count(*) FROM score WHERE niveau = ? AND id_utilisateur = ?");
-        $requete->execute(array($level,$id));
-        $resultat_nombre_partie = $requete->fetchall(); 
-       
-     
-        if ( $resultat_nombre_partie[0][0] != 0 ) {
-           
-            $requete1 = $connect->prepare("SELECT SUM(nb_coup) FROM score WHERE niveau = ? AND id_utilisateur = ?");
-            $requete1->execute(array($level,$id));
-            $resultat_nombre_coups = $requete1->fetchall();  
-
-            $moyenne_coup = $resultat_nombre_coups[0][0] / $resultat_nombre_partie[0][0] ;
-
-            return  $moyenne_coup;
-        }else {
-           
-            return false;
-
-        }
-
-    }
-
-    //FONCTION CREATION ETOILES
-    function StarsCreate($compteur) {
-        for ($j = 0 ; $j < $compteur ; $j++) {
-            echo '<span class="icon-star"></span>';
-        }      
-    }
-
-    
-        
-   
-    
+ 
     if (isset($_POST['valider'])) {
     
         $login = $_POST['login'];
@@ -153,24 +119,22 @@ if (isset($_SESSION['id'])) {
                             <tr>
                                 <td><?= $i ?> Paires</td>
                                 <td><?= recuperation_Moyenne_score($connect,"$i paires", $id) ?> coups</td>
-                                <?php if ( recuperation_Moyenne_score($connect,"$i paires", $id)>= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 4 ) :?>
+                                <?php if ( recuperation_Moyenne_score($connect,"$i paires", $id)>= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 10 ) :?>
                                     <td>
                                         <?php StarsCreate(4) ?>
                                     </td>
-                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) >= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 10) :?>
+                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 10 && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 20) :?>
                                     <td>
                                         <?php StarsCreate(3) ?>
                                     </td>
-                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) >= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 16) :?>
+                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 20 && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 30) :?>
                                     <td>
                                         <?php StarsCreate(2) ?>
                                     </td>
-                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) >= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 22) :?>
+                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 30) :?>
                                     <td>
                                         <?php StarsCreate(1) ?>
                                     </td>
-                                <?php else :?>
-                                    <td>CC</td>
                                 
                                 <?php endif ;?>
                             </tr>
@@ -178,11 +142,17 @@ if (isset($_SESSION['id'])) {
                     <?php endfor ;?>
                     </tbody>
                 </table>
+
+
+               
             
         </section>
       
         
-       
+        <div class="supprimer">
+            <span class="icon-trash"></span>
+            <a href="supprimer_compte.php?supp=ok">Supprimer son compte</a>
+        </div>
         
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>
