@@ -305,6 +305,10 @@ header nav {
     margin: auto!important;
 }
 
+@media screen and (max-width: 600px){
+    header
+}
+
 /**** FOOTER ****/
 .footer {
     
@@ -378,7 +382,8 @@ footer{
 
 
 .frame_profil form{
-    margin: 3% 50% 5%;
+    width: 50%;
+    margin: 4% auto;
 }
 
 .filterby div{
@@ -406,6 +411,7 @@ footer{
 /*** PROFIL ***/
 
 h3 {
+    padding: 4%;
     text-align: center;
 }
 .main_profil h1 {
@@ -415,6 +421,7 @@ h3 {
 .section {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
@@ -443,8 +450,8 @@ h3 {
 }
 .frame_profil button {
     width: 35%;
-    margin: 1%;
-    padding: 1%;
+    margin: 2%;
+    padding: 2%;
     font-weight: 800;
     letter-spacing: 1px;
     line-height: 1.2;
@@ -460,19 +467,24 @@ h3 {
     text-align: center;
 }
 
+.supprimer button {
+    margin: 1%;
+}
 .supprimer button a {
     color: black;
 }
 .div_tableau1 {
-    width: 60%;
+    width: 62%;
     margin: 0 auto!important;
     display: flex;
     flex-direction: column;
 }
 .div_tableau2 {
-    width: 40%;
+    width: 100%;
     margin: 0 auto!important;
     display: flex;
     flex-direction: column;
 }
+
+
 

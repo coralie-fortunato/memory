@@ -71,13 +71,12 @@ if (isset($_SESSION['id'])) {
 
                 <input type="password" name="password1" placeholder="mot de passe">
 
-                <input type="password" name="password2" placeholder="Confirmation mot de passe">
+    
 
-                <button type="submit" name="valider">Enregistrer</button>
-            
-            </form>
+    <?php if (!isset($_GET['modif'])) :?>
+           
         </div>
-        <section class="section">
+        
             <div class="div_tableau1">
                 <h3>Tableau des scores</h3>
                 <table class="table table-dark table-hover table_profil">
@@ -110,61 +109,82 @@ if (isset($_SESSION['id'])) {
                 
                 </table>
             </div>
-
-            <div class="div_tableau2">
-                <h3>Scores moyens</h3>
-                <table class="table table-bordered table-hover table_profil2">
-                    
-                    <thead class="thead-dark">
-                            <tr>
-                                <th>Niveau</th>
-                                <th>Score Moyen</th>
-                                <th>Etoiles</th>
-                            </tr>
-                    </thead>
-                    <tbody class="bg-secondary text-center">
-                    <?php for ($i = 3 ; $i <= 13 ; $i++):?>
-                        <?php if (recuperation_Moyenne_score($connect,"$i paires", $id) != false) :?>
-                            <tr>
-                                <td><?= $i ?> Paires</td>
-                                <td><?= recuperation_Moyenne_score($connect,"$i paires", $id) ?> coups</td>
-                                <?php if ( recuperation_Moyenne_score($connect,"$i paires", $id)>= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 10 ) :?>
-                                    <td>
-                                        <?php StarsCreate(4) ?>
-                                    </td>
-                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 10 && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 20) :?>
-                                    <td>
-                                        <?php StarsCreate(3) ?>
-                                    </td>
-                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 20 && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 30) :?>
-                                    <td>
-                                        <?php StarsCreate(2) ?>
-                                    </td>
-                                <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 30) :?>
-                                    <td>
-                                        <?php StarsCreate(1) ?>
-                                    </td>
-                                
-                                <?php endif ;?>
-                            </tr>
-                        <?php endif ;?>
-                    <?php endfor ;?>
-                    </tbody>
-                </table>
-            </div>
-
-               
-            
-        </section>
+            <section class="section"> 
+                <div class="div_tableau2">
+                    <h3>Scores moyens</h3>
+                    <table class="table table-bordered table-hover table_profil2">
+                        
+                        <thead class="thead-dark">
+                                <tr>
+                                    <th>Niveau</th>
+                                    <th>Score Moyen</th>
+                                    <th>Etoiles</th>
+                                </tr>
+                        </thead>
+                        <tbody class="bg-secondary text-center">
+                            <?php for ($i = 3 ; $i <= 13 ; $i++):?>
+                            <?php if (recuperation_Moyenne_score($connect,"$i paires", $id) != false) :?>
+                                <tr>
+                                    <td><?= $i ?> Paires</td>
+                                    <td><?= recuperation_Moyenne_score($connect,"$i paires", $id) ?> coups</td>
+                                    <?php if ( recuperation_Moyenne_score($connect,"$i paires", $id)>= ($i * 2) && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 10 ) :?>
+                                        <td>
+                                            <?php StarsCreate(4) ?>
+                                        </td>
+                                    <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 10 && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 20) :?>
+                                        <td>
+                                            <?php StarsCreate(3) ?>
+                                        </td>
+                                    <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 20 && recuperation_Moyenne_score($connect,"$i paires", $id) <= ($i * 2) + 30) :?>
+                                        <td>
+                                            <?php StarsCreate(2) ?>
+                                        </td>
+                                    <?php elseif (recuperation_Moyenne_score($connect,"$i paires", $id) > ($i * 2) + 30) :?>
+                                        <td>
+                                            <?php StarsCreate(1) ?>
+                                        </td>
+                                    
+                                    <?php endif ;?>
+                                </tr>
+                            <?php endif ;?>
+                        <?php endfor ;?>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
       
+            <div class="supprimer">
+                <button type="button" class="btn btn-danger" ><a href="supprimer_compte.php?supp=ok" class="icon-trash">Supprimer son compte</a></button>
+                <button type="button" class="btn btn-warning" ><a href="profil.php?modif" >Modifier son compte</a></button>
+            </div>
         
+<<<<<<< HEAD
         <div class="supprimer">
  
             <button type="button" class="btn btn-danger" ><a href="supprimer_compte.php?supp=ok" class="icon-trash">Supprimer son compte</a></button>
         </div>
                            
+=======
+        <?php else :?>
+            <div class="frame_profil">
+
+                <h3>Modifier son compte</h3>
+
+                <?php if (isset($_SESSION['erreur'])) { echo "<p class='alert alert-danger'>".$_SESSION['erreur']."</p>";} ?>
+                <?php if (isset($_SESSION['success'])) { echo "<p class='alert alert-success w-25 m-auto'> ".$_SESSION['success']."</p>";} ?>
+
+                <form action="" method="post" >
+                    <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
+                    <input type="password" name="password1" placeholder="mot de passe">
+                    <input type="password" name="password2" placeholder="Confirmation mot de passe">
+                    <button class="btn btn-light w-50" type="submit" name="valider">Enregistrer</button> 
+                </form> 
+            </div>
+            <button class="btn btn-warning m-auto d-block " ><a href="profil.php">Retour</a></button>
+        <?php endif ;?>  
+>>>>>>> fe30d64bec08b6e34f61e7f846812357f937513f
     </main>
-    <footer><?php include 'includes/footer.php'; ?></footer>
+  
 </body>
 </html>
-<?php unset($_SESSION['erreur']) ?>
+<?php unset($_SESSION['erreur'],$_SESSION['success']) ?>
