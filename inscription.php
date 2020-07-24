@@ -31,11 +31,11 @@ if (isset($_POST['valider'])) {
     
     <main class="main_lvl">
         
-        <div class="go_back_button">
-            <a href="index.php"><img src="src/icon/go-back256_24856.png" alt="go back icon"></a>
+    <div class="go_back_button">
+        <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
 
-        </div>
-        
+    </div>
+
         <div class="frame">
 
             <h1>S'inscrire</h1>

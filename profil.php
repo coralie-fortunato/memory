@@ -39,7 +39,7 @@ if (isset($_SESSION['id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,26 +52,15 @@ if (isset($_SESSION['id'])) {
 <body>
     
     <main class="main_profil">
-       
-        
-        
-            <h1>Mon compte</h1>
-            
-            
-            <div class="go_back_button">
-                <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
 
-            </div>
+    <div class="go_back_button">
+        <a href="index.php"><img src="src/icon/exit_icon.png" alt="go back icon"></a>
 
-            <?php if (isset($_SESSION['erreur'])) { echo $_SESSION['erreur'];} ?>
-
-         
-
-    
+    </div>
 
     <?php if (!isset($_GET['modif'])) :?>
            
-        
+        </div>
         
             <div class="div_tableau1">
                 <h3>Tableau des scores</h3>
@@ -161,13 +150,13 @@ if (isset($_SESSION['id'])) {
 
                 <?php if (isset($_SESSION['erreur'])) { echo "<p class='alert alert-danger'>".$_SESSION['erreur']."</p>";} ?>
                 <?php if (isset($_SESSION['success'])) { echo "<p class='alert alert-success w-25 m-auto'> ".$_SESSION['success']."</p>";} ?>
-                <div class="frame_profil">
-                    <form action="" method="post" >
-                        <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
-                        <input type="password" name="password1" placeholder="mot de passe">
-                        <input type="password" name="password2" placeholder="Confirmation mot de passe">
-                        <button class="btn btn-light w-50" type="submit" name="valider">Enregistrer</button> 
-                    </form> 
+
+                <form action="" method="post" >
+                    <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
+                    <input type="password" name="password1" placeholder="mot de passe">
+                    <input type="password" name="password2" placeholder="Confirmation mot de passe">
+                    <button class="btn btn-light w-50" type="submit" name="valider">Enregistrer</button> 
+                </form> 
             </div>
             <button class="btn btn-warning m-auto d-block " ><a href="profil.php">Retour</a></button>
         <?php endif ;?>  
