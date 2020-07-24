@@ -85,7 +85,7 @@ class score{
     }
 
     public function scoreUser($id){
-        $req_score= $this->db->prepare("SELECT * FROM score WHERE id_utilisateur = ?");
+        $req_score= $this->db->prepare("SELECT * FROM score WHERE id_utilisateur = ? LIMIT 10");
         $req_score->execute([$id]);
         $data_user =  $req_score->fetchAll();
 
