@@ -34,7 +34,7 @@ if (isset($_POST['valider'])) {
 
             <h1>S'inscrire</h1>
 
-            <?php if (isset($_SESSION['erreur'])) {echo "<p>".$_SESSION['erreur']."</p>" ;} ?>
+            <?php if (isset($_SESSION['erreur'])) {echo "<p class='alert alert-danger'>".$_SESSION['erreur']."</p>" ;} ?>
             <form action="" method="POST">
 
                 <input type="text" name="login" placeholder="Login">

@@ -1,8 +1,9 @@
-<h1>Memory</h1>
+<a href="index.php"><h1>Memory</h1></a>
 
 <nav>
     <?php if (isset($_SESSION['id'])) :?>
         <a href="wall_of_fame.php">Wall of Fame</a>
+        <a href="choice_level.php">Nouveau jeu</a>
         <a href="profil.php">Mon compte</a>
         <div class="div_header">
             <span class="icon-logout"></span>

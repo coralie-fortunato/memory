@@ -39,6 +39,7 @@ class User {
                     $newpassword = password_hash ( $_POST['password1'] , PASSWORD_DEFAULT );   
                     $requete = $this->connect->prepare("INSERT INTO `utilisateurs`( `login`, `password`) VALUES (?,?)");
                     $requete->execute([$login,$newpassword]); 
+                    header('location: connexion.php');
                 }
                 else {
                     $_SESSION['erreur'] = "Mots de passe incorrect";

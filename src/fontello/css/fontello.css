@@ -56,5 +56,5 @@
 }
  
 .icon-logout:before { content: '\e800'; color: blue; } /* '' */
-.icon-trash:before { content: '\e801';color: red; } /* '' */
+.icon-trash:before { content: '\e801';color: white; } /* '' */
 .icon-star:before { content: '\e802';color: yellow; } /* '' */

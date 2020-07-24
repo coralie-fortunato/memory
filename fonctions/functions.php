@@ -15,7 +15,7 @@
             $requete1->execute(array($level,$id));
             $resultat_nombre_coups = $requete1->fetchall();  
 
-            $moyenne_coup = $resultat_nombre_coups[0][0] / $resultat_nombre_partie[0][0] ;
+            $moyenne_coup = ceil($resultat_nombre_coups[0][0] / $resultat_nombre_partie[0][0]) ;
 
             return  $moyenne_coup;
         }else {
