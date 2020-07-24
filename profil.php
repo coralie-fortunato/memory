@@ -75,7 +75,7 @@ if (isset($_SESSION['id'])) {
 
     <?php if (!isset($_GET['modif'])) :?>
            
-        </div>
+        
         
             <div class="div_tableau1">
                 <h3>Tableau des scores</h3>
