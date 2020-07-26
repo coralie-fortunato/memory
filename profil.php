@@ -33,13 +33,17 @@ if (isset($_SESSION['id'])) {
         $user->update($id,$login,$password1,$password2);  
     }
 
+
+}
+else {
+    header("location: index.php");
 }
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +51,7 @@ if (isset($_SESSION['id'])) {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/fontello/css/fontello.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Profil</title>
 </head>
 <body>
     
@@ -60,7 +64,7 @@ if (isset($_SESSION['id'])) {
 
     <?php if (!isset($_GET['modif'])) :?>
            
-        </div>
+        
         
             <div class="div_tableau1">
                 <h3>Tableau des scores</h3>
@@ -139,8 +143,8 @@ if (isset($_SESSION['id'])) {
             </section>
       
             <div class="supprimer">
-                <button type="button" class="btn btn-danger" ><a href="supprimer_compte.php?supp=ok" class="icon-trash">Supprimer son compte</a></button>
-                <button type="button" class="btn btn-warning" ><a href="profil.php?modif" >Modifier son compte</a></button>
+                <a href="supprimer_compte.php?supp=ok" class="btn btn-danger icon-trash">Supprimer son compte</a>
+                <a href=" profil.php?modif" class="btn btn-warning" >Modifier son compte</a>
             </div>
         
         <?php else :?>
@@ -155,10 +159,12 @@ if (isset($_SESSION['id'])) {
                     <input type="text" name="login" placeholder="login" value="<?php if (isset($resultat)) { echo $resultat['login'] ;} ?>">
                     <input type="password" name="password1" placeholder="mot de passe">
                     <input type="password" name="password2" placeholder="Confirmation mot de passe">
-                    <button class="btn btn-light w-50" type="submit" name="valider">Enregistrer</button> 
+                    <button class="btn btn-light  btn-enregistrer d-block m-auto" type="submit" name="valider">Enregistrer</button> 
                 </form> 
+
+                <a href="profil.php" class="btn btn-warning m-auto d-block btn-retour">Retour</a>
             </div>
-            <button class="btn btn-warning m-auto d-block " ><a href="profil.php">Retour</a></button>
+           
         <?php endif ;?>  
     </main>
     <footer><?php include 'includes/footer.php'; ?></footer>

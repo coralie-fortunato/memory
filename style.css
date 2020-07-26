@@ -18,6 +18,8 @@ a {
     text-decoration: none!important;
     color: white;
 }
+
+
 /*PAGE INDEX */
 
 .main_index{
@@ -424,7 +426,7 @@ h3 {
     border: 1px solid white;
 }
 .frame_profil button {
-    width: 35%;
+    width: 30%;
     margin: 2%;
     padding: 2%;
     font-weight: 800;
@@ -461,5 +463,20 @@ h3 {
     flex-direction: column;
 }
 
+.btn-retour {
+    width: 10%;
+}
 
+@media screen and (max-width: 650px){
+    .frame_profil form{
+        width: 80%;
+    }
+    .frame_profil button {
+        width: 60%;
+  
+    }
+    .btn-retour {
+        width: 18%;
+    }
+}
 
