@@ -7,7 +7,7 @@ if (isset($_SESSION['id'])) {
     
     require 'classes/database.php';
     require 'classes/User.php';
-    require 'score.php';
+    require 'classes/score.php';
     require 'fonctions/functions.php';
 
     $bd = new Database("localhost","root","","memory");
