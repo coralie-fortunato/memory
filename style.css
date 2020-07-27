@@ -116,6 +116,7 @@ a {
     padding: 1em;
     background: #dfe4ea;
     min-height: 100vh;
+  
     
 }
 
@@ -133,15 +134,14 @@ a {
     width:70%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
-    row-gap: 1%;
     column-gap: 3%;
-    position: relative;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
 .grid div{
     width: 100% ;
+    margin: 5%;
 }
 .grid img{
     width: 100%;
@@ -325,17 +325,11 @@ form div{
   }
 
 /**** FOOTER ****/
-.footer {
-    
-    text-align: center;
-    position: absolute;
-    left: 38%;
-    bottom: 2%;  
-  
-}
+
 
 footer{
     text-align: center;
+    margin-top: 3%;
 }
 
 /* PAGE WALL OF FAME */

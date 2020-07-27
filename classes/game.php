@@ -8,9 +8,6 @@ class board{
 
     private $array=[];
     private $limit ;
-    private $flipped_card=[];
-
-   
 
      public function __construct($limit){
 
