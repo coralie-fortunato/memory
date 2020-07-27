@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("classes/database.php");
-require("score.php");
+require("classes/score.php");
 
 $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
@@ -26,7 +26,7 @@ if(isset($_POST['valider'])){
          //var_dump($_POST['level']);
         $level= strval($_POST['level']); 
         $data = $score->scorebytime($level);
-        var_dump($data);
+        
 
     }
 

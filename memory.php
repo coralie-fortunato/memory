@@ -1,7 +1,7 @@
 <?php
 require("classes/database.php");
-require("score.php");
-require("game.php");
+require("classes/score.php");
+require("classes/game.php");
 
 $db = new DataBase("localhost","root","","memory");
 $db_connect = $db->connect();
