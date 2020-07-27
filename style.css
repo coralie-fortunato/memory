@@ -18,6 +18,8 @@ a {
     text-decoration: none!important;
     color: white;
 }
+
+
 /*PAGE INDEX */
 
 .main_index{
@@ -165,6 +167,7 @@ form div{
     align-items: center;
 }
 
+
 .frame h1{
     margin-top: 2em;
 }
@@ -186,6 +189,16 @@ form div{
     font-size: large;
     border: 1px solid white;
     
+}
+
+@media screen and (max-width: 650px)
+{
+    .frame{
+        width: 100%;
+    }
+    .frame select , .frame input {
+        width: 100%; 
+    }
 }
 .frame option , .frame input, .frame_profil input{
     background: transparent;
@@ -301,40 +314,6 @@ form div{
       
   }
 
-/**** HEADER ****/
-
-header {
-    width: 100%;
-    min-height: 15vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1%;
-    background-color: black;
-    color: white;
-}
-
-.div_header {
-    display: inline-block;
-}
-
-header nav {
-    width: 55%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-}
-
-.div_header span {
-    display: block;
-    width: 20%;
-    margin: auto!important;
-}
-
-@media screen and (max-width: 600px){
-    header
-}
-
 /**** FOOTER ****/
 .footer {
     
@@ -402,10 +381,7 @@ footer{
     background-position: center;
     min-height: 100vh;
     width: 100%;
-   
 }
-
-
 
 .frame_profil form{
     width: 50%;
@@ -475,7 +451,7 @@ h3 {
     border: 1px solid white;
 }
 .frame_profil button {
-    width: 35%;
+    width: 30%;
     margin: 2%;
     padding: 2%;
     font-weight: 800;
@@ -500,7 +476,7 @@ h3 {
     color: black;
 }
 .div_tableau1 {
-    width: 62%;
+    width: 70%;
     margin: 0 auto!important;
     display: flex;
     flex-direction: column;
@@ -512,5 +488,20 @@ h3 {
     flex-direction: column;
 }
 
+.btn-retour {
+    width: 10%;
+}
 
+@media screen and (max-width: 650px){
+    .frame_profil form{
+        width: 80%;
+    }
+    .frame_profil button {
+        width: 60%;
+  
+    }
+    .btn-retour {
+        width: 18%;
+    }
+}
 
